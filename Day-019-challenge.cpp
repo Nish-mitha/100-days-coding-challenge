@@ -6,7 +6,7 @@ int removeDupeEle(vector<int> &arr) {
     int counter = 0, left = 0, right = left + 1;
     while(left < arr.size() - counter && right < arr.size() - counter) {
         if(arr[left] == arr[right]) {
-            while(right < arr.size() - counter) {
+            while(right < arr.size() - 1 - counter) {
                 arr[right] = arr[right + 1];
                 right++;
             }
