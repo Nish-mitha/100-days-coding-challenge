@@ -4,24 +4,16 @@
 using namespace std;
 
 int maxProfit(vector<int> &num) {
-    int maxProfit = 0, left = 0, right = left + 1;
-    while(left < num.size()) {
-        int profit = 0, j = left;
-        while(num[j] < num[right] && right < num.size() && j < num.size()) {
-            cout << num[right] << "---" << num[left] << endl;
-            profit += num[right] - num[j];
-            j++;
-            right = j + 1;
-        cout << profit << endl;
-        cout << j << endl;
-
+    int max = 0;
+    int start = num[0];
+    int len = num.size();
+    for(int i = 1;i < len; i++){
+        if(start < num[i]){
+            max += num[i] - start;
         }
-        cout << profit << endl;
-        maxProfit = max(profit, maxProfit);
-        left++;
-        right = left + 1;
+        start = num[i];
     }
-    return maxProfit;
+    return max;
 }
 
 int main() {
